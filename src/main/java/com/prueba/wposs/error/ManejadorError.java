@@ -1,14 +1,6 @@
-package com.ayd.aulas.error;
+package com.prueba.wposs.error;
 
-import com.ayd.aulas.excepcion.ExcepcionCantidadInsuficiente;
-import com.ayd.aulas.excepcion.ExcepcionConStock;
-import com.ayd.aulas.excepcion.ExcepcionDuplicidad;
-import com.ayd.aulas.excepcion.ExcepcionFinDeMes;
-import com.ayd.aulas.excepcion.ExcepcionLongitudValor;
-import com.ayd.aulas.excepcion.ExcepcionObjectoNoEncontrado;
-import com.ayd.aulas.excepcion.ExcepcionSinDatos;
-import com.ayd.aulas.excepcion.ExcepcionValorInvalido;
-import com.ayd.aulas.excepcion.ExcepcionValorObligatorio;
+import com.prueba.wposs.excepcion.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.ayd.aulas.excepcion;
+package com.prueba.wposs.excepcion;
 
 public class ExcepcionDuplicidad extends RuntimeException {
 

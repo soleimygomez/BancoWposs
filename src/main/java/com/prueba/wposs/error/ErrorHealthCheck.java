@@ -1,4 +1,4 @@
-package com.ayd.aulas.error;
+package com.prueba.wposs.error;
 
 
 public class ErrorHealthCheck {

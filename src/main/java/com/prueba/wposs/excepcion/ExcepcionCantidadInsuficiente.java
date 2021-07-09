@@ -1,4 +1,4 @@
-package com.ayd.aulas.excepcion;
+package com.prueba.wposs.excepcion;
 
 public class ExcepcionCantidadInsuficiente extends RuntimeException{
 
