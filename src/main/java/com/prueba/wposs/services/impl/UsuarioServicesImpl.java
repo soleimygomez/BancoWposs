@@ -10,7 +10,6 @@ import com.prueba.wposs.excepcion.ExcepcionSinDatos;
 import com.prueba.wposs.excepcion.ExcepcionValorInvalido;
 import com.prueba.wposs.services.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +20,6 @@ public class UsuarioServicesImpl implements UsuarioServices {
     @Autowired
     private UsuarioDao usuarioDao;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<UsuarioEntity> allUsuario() {
@@ -43,7 +40,6 @@ public class UsuarioServicesImpl implements UsuarioServices {
 
             usuarioEntity.setNumeroCuenta("1" + usuarioEntity.getCelular());
             usuarioEntity.setMonto(4000000);
-            usuarioEntity.setClave(passwordEncoder.encode(usuarioEntity.getClave()));
         } else {
             throw new ExcepcionValorInvalido("No cumple los Parametros Requeridos");
         }
@@ -116,7 +112,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
         return message;
     }
 
-    public String login(String numeroCuenta, String clave){
+    public String login(String numeroCuenta, String clave) {
 
         return null;
     }
