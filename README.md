@@ -1,4 +1,7 @@
+
 # BancoWposs
+
+Proyecto elaborado con Java framework Spring Boot, Spring Data JPA, MYSQL, Swagger
 
 Para poder acceder a los endpoints http://localhost:8081/swagger-ui.html#
 en el cual se encuentra los endpoints del controlador usuario
