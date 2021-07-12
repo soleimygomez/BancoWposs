@@ -1,6 +1,7 @@
 package com.prueba.wposs.services;
 
 import com.prueba.wposs.dto.DepositoDto;
+import com.prueba.wposs.dto.LoginDto;
 import com.prueba.wposs.dto.RetiroDto;
 import com.prueba.wposs.dto.TransferenciaDto;
 import com.prueba.wposs.entity.UsuarioEntity;
@@ -18,4 +19,6 @@ public interface UsuarioServices {
     String deposito(DepositoDto deposito);
 
     String transferencia(TransferenciaDto tranferencia);
+
+    String login(LoginDto login);
 }

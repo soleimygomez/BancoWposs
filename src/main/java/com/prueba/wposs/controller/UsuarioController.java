@@ -1,6 +1,7 @@
 package com.prueba.wposs.controller;
 
 import com.prueba.wposs.dto.DepositoDto;
+import com.prueba.wposs.dto.LoginDto;
 import com.prueba.wposs.dto.RetiroDto;
 import com.prueba.wposs.dto.TransferenciaDto;
 import com.prueba.wposs.entity.UsuarioEntity;
@@ -42,6 +43,11 @@ public class UsuarioController {
     @PostMapping("/tranferencia")
     String transferencia(@RequestBody TransferenciaDto tranferencia) {
         return usuarioServices.transferencia(tranferencia);
+    }
+
+    @PostMapping("/login")
+    String login(@RequestBody LoginDto login) {
+        return usuarioServices.login(login);
     }
 
 

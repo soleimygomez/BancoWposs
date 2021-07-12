@@ -13,11 +13,16 @@ import lombok.Setter;
 public class UsuarioDto {
 
     private Long id;
+
+
     private String nombre;
+
     private TipoDocumentoDto tipoDocumento;
     private Integer identificacion;
     private String celular;
+
     private String email;
+
     private String clave;
     private boolean estado;
     private String numeroCuenta;
