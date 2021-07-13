@@ -43,7 +43,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
         List<UsuarioEntity> usuarios = allUsuario();
 
         for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getIdentificacion().equals(usuarioEntity.getIdentificacion()) && usuarios.get(i).getNombre().equals(usuarioEntity.getNombre()) && usuarios.get(i).getCelular().equals(usuarioEntity.getCelular())) {
+            if (usuarios.get(i).getIdentificacion().equals(usuarioEntity.getIdentificacion()) || usuarios.get(i).getNombre().equals(usuarioEntity.getNombre()) || usuarios.get(i).getCelular().equals(usuarioEntity.getCelular()) || usuarios.get(i).getEmail().equals(usuarioEntity.getEmail())) {
                 respuesta = true;
                 break;
             }
