@@ -12,7 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UsuarioDto {
 
-    private Long id;
 
 
     private String nombre;
@@ -24,7 +23,5 @@ public class UsuarioDto {
     private String email;
 
     private String clave;
-    private boolean estado;
-    private String numeroCuenta;
-    private float monto;
+
 }

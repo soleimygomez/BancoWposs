@@ -2,10 +2,7 @@ package com.prueba.wposs.services.impl;
 
 
 import com.prueba.wposs.dao.UsuarioDao;
-import com.prueba.wposs.dto.DepositoDto;
-import com.prueba.wposs.dto.LoginDto;
-import com.prueba.wposs.dto.RetiroDto;
-import com.prueba.wposs.dto.TransferenciaDto;
+import com.prueba.wposs.dto.*;
 import com.prueba.wposs.entity.UsuarioEntity;
 import com.prueba.wposs.excepcion.ExcepcionSinDatos;
 import com.prueba.wposs.excepcion.ExcepcionValorInvalido;
@@ -37,25 +34,34 @@ public class UsuarioServicesImpl implements UsuarioServices {
 
 
     @Override
-    public Long register(UsuarioEntity usuarioEntity) {
-
+    public Long register(UsuarioDto usuariodto) {
         boolean respuesta=false;
         List<UsuarioEntity> usuarios = allUsuario();
 
         for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getIdentificacion().equals(usuarioEntity.getIdentificacion()) || usuarios.get(i).getNombre().equals(usuarioEntity.getNombre()) || usuarios.get(i).getCelular().equals(usuarioEntity.getCelular()) || usuarios.get(i).getEmail().equals(usuarioEntity.getEmail())) {
+            if (usuarios.get(i).getIdentificacion().equals(usuariodto.getIdentificacion()) || usuarios.get(i).getNombre().equals(usuariodto.getNombre()) || usuarios.get(i).getCelular().equals(usuariodto.getCelular()) || usuarios.get(i).getEmail().equals(usuariodto.getEmail())) {
                 respuesta = true;
                 break;
             }
         }
 
         if (respuesta == false) {
-            if (usuarioEntity.getClave().length() >= 8 && usuarioEntity.isEstado() == true) {
-                if (usuarioEntity.getCelular().length() == 10) {
-                    if (usuarioEntity.getEmail().contains("@gmail.com") || usuarioEntity.getEmail().contains("@hotmail.com")) {
-                        if (usuarioEntity.getIdentificacion() > 0) {
-                            usuarioEntity.setNumeroCuenta("1" + usuarioEntity.getCelular());
+
+            if (usuariodto.getClave().length() >= 8 ) {
+                if (usuariodto.getCelular().length() == 10) {
+                    if (usuariodto.getEmail().contains("@gmail.com") || usuariodto.getEmail().contains("@hotmail.com")) {
+                        if (usuariodto.getIdentificacion() > 0) {
+
+                            UsuarioEntity usuarioEntity= new UsuarioEntity();
+                            usuarioEntity.setNumeroCuenta("1" + usuariodto.getCelular());
                             usuarioEntity.setMonto(4000000);
+                            usuarioEntity.setCelular(usuariodto.getCelular());
+                            usuarioEntity.setClave(usuariodto.getClave());
+                            usuarioEntity.setNombre(usuariodto.getNombre());
+                            usuarioEntity.setIdentificacion(usuariodto.getIdentificacion());
+                            usuarioEntity.setEmail(usuariodto.getEmail());
+                            usuarioEntity.setEstado(true);
+                            usuarioDao.save(usuarioEntity).getId();
                         } else {
                             throw new ExcepcionValorInvalido("Identificacion incorrecta");
                         }
@@ -68,7 +74,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
             } else {
                 throw new ExcepcionValorInvalido("la Clave debe ser mayor a 8 ");
             }
-            usuarioDao.save(usuarioEntity).getId();
+
         } else {
             throw new ExcepcionValorInvalido("Este usuario ya esta registrado ");
         }

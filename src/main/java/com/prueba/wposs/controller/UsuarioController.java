@@ -1,9 +1,6 @@
 package com.prueba.wposs.controller;
 
-import com.prueba.wposs.dto.DepositoDto;
-import com.prueba.wposs.dto.LoginDto;
-import com.prueba.wposs.dto.RetiroDto;
-import com.prueba.wposs.dto.TransferenciaDto;
+import com.prueba.wposs.dto.*;
 import com.prueba.wposs.entity.UsuarioEntity;
 import com.prueba.wposs.services.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +23,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/registrar")
-    public Long register(@RequestBody UsuarioEntity usuarioEntity) {
-        return usuarioServices.register(usuarioEntity);
+    public Long register(@RequestBody UsuarioDto usuariodto) {
+        return usuarioServices.register(usuariodto);
     }
 
     @PostMapping("/retiro")
